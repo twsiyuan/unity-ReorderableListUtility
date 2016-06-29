@@ -1,8 +1,12 @@
-﻿
+﻿//  
+// Copyright (c) 2016 Siyuan Wang.
+// Licensed under the Apache License  Version 2.0. See LICENSE file in the project root for full license information.  
+//
+
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
 using UnityEditorInternal;
+using UnityEngine;
 
 public static class ReorderableListUtility
 {
@@ -44,7 +48,7 @@ public static class ReorderableListUtility
         return property.isExpanded;
     }
 
-    static ReorderableList.ElementCallbackDelegate DrawElement(ReorderableList list, System.Func<List<Column>> getColumns, float columnSpacing)
+    private static ReorderableList.ElementCallbackDelegate DrawElement(ReorderableList list, System.Func<List<Column>> getColumns, float columnSpacing)
     {
         return (rect, index, isActive, isFocused) =>
         {
@@ -65,7 +69,7 @@ public static class ReorderableListUtility
         };
     }
 
-    static ReorderableList.HeaderCallbackDelegate DrawHeader(ReorderableList list, System.Func<List<Column>> getColumns, float columnSpacing)
+    private static ReorderableList.HeaderCallbackDelegate DrawHeader(ReorderableList list, System.Func<List<Column>> getColumns, float columnSpacing)
     {
         return (rect) =>
         {
@@ -91,7 +95,7 @@ public static class ReorderableListUtility
         };
     }
 
-    static System.Func<List<Column>> GetColumnsFunc(ReorderableList list, string[] headers, float?[] columnWidth, List<Column> output)
+    private static System.Func<List<Column>> GetColumnsFunc(ReorderableList list, string[] headers, float?[] columnWidth, List<Column> output)
     {
         var property = list.serializedProperty;
         return () =>
@@ -125,7 +129,8 @@ public static class ReorderableListUtility
                             }
 
                             index += 1;
-                        } while (it.Next(false));
+                        }
+                        while (it.Next(false));
                     }
                 }
             }
@@ -134,7 +139,7 @@ public static class ReorderableListUtility
         };
     }
 
-    static List<float> CalculateColumnLayout(List<Column> columns, Rect rect, float columnSpacing)
+    private static List<float> CalculateColumnLayout(List<Column> columns, Rect rect, float columnSpacing)
     {
         var autoWidth = rect.width;
         var autoCount = 0;
@@ -169,7 +174,7 @@ public static class ReorderableListUtility
         return widths;
     }
 
-    struct Column
+    private struct Column
     {
         public string DisplayName;
         public string PropertyName;
