@@ -1,7 +1,8 @@
 # ReorderableListUtility
 
 ## What is this
-A wrapper function that easily build ReorderableList for array serailized property. 
+
+A wrapper function that easily build ReorderableList for array serailized property in Unity. 
 
 ReorderableList is a undocumented editor class that visualize list in UnityEditor. 
 
@@ -22,6 +23,8 @@ Visualized by Reorderable-list
 - Use example code to build ReorderableList and use it to layout editor
 
 Example editor [Assets/Example/Editor/ShopMenuEditor.cs](Assets/Example/Editor/ShopMenuEditor.cs)
+
+Note: Test in Unity5.3.5f1
 
 ## Example
 
